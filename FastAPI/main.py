@@ -19,17 +19,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class TransactionBase(BaseModel): #this is used for creating and updating transactions
+class TransactionBase(BaseModel): 
     amount: float
     category: str
     description: str
     is_income: bool
     date: str
 
-class TransactionModel(TransactionBase): #this is used for reading transactions
+class TransactionModel(TransactionBase): 
     id: int
 
-    class Config: #tells Pydantic to read data even if it is not a dict, but an ORM model
+    class Config: 
         orm_mode= True
 
 def get_db():
